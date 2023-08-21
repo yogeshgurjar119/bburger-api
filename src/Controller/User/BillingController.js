@@ -99,7 +99,7 @@ const getAllBill = async (req, res, next) => {
                                             })
                                             // console.log(productDetail)
                                             if (productDetail.length > 0) {
-                                                Pricetotal = Pricetotal + parseFloat(productDetail[0].price)
+                                                Pricetotal = Pricetotal + (parseFloat(productDetail[0].price) * data.Quantity)
                                             }
                                         })
                                         // console.log(CourseArray)

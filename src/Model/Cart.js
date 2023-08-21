@@ -2,36 +2,48 @@ const mongoose = require('mongoose');
 const Cart = new mongoose.Schema({
     CartID: {
         type: String,
-        trim :true,
+        trim: true,
         required: true
     },
     UserID: {
         type: String,
-        trim :true,
+        trim: true,
         required: true
     },
-    Item : [
+    Item: [
         {
-            ProductID: {
+            id: {
                 type: String,
-                trim :true,
+                trim: true,
             },
-            Quantity: {
+            title: {
+                type: String,
+                trim: true,
+            },
+            price: {
                 type: Number,
-                trim :true,
+                trim: true,
+            },
+            quantity: {
+                type: Number,
+                trim: true,
+            },
+            totalPrice: {
+                type: Number,
+                trim: true,
             },
         }
     ],
-    Status : {
+    Status: {
         type: String,
-        default:"Pending"
+        default: "Pending"
     },
     IsActive: {
         type: Boolean,
-        default:true
+        default: true
     },
 },
-{ timestamps: true }
+    { timestamps: true }
 )
 
 module.exports = mongoose.model("cartdetails", Cart)

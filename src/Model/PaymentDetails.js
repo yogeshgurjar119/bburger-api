@@ -12,6 +12,17 @@ const Payment = new mongoose.Schema({
     UserID: {
         type: String,
         required: true,
+        ref: "users",
+        trim: true
+    },
+    CartID: {
+        type: String,
+        ref: "cartdetails",
+        trim: true
+    },
+    BillID: {
+        type: String,
+        ref: "billingAddress",
         trim: true
     },
     TransacationId: {
@@ -34,45 +45,22 @@ const Payment = new mongoose.Schema({
         type: String,
         trim: true
     },
-    Tax: {
-        type: String,
-        trim: true
-    },
-    Cart: [
-        {
-            CourseID : {
-                    type: String,
-                    trim: true
-                },
-            Title : {
-                type: String,
-                trim: true
-            } ,
-            Price : {
-                type: String,
-                trim: true
-            },
-            // CutPrice: {
-            //     type: String,
-            //     trim: true
-            // }, 
-            Quantity : {
-                type: Number,
-                trim: true
-            },
-        }
-     ],
+    Cart: [],
     Total: {
-        type: String,
+        type: Number,
         trim: true
     },
-    RazorpayAmount:{
-        type : String,
-        trim :true
+    Tax: {
+        type: Number,
+        trim: true
+    },
+    RazorpayAmount: {
+        type: Number,
+        trim: true
     },
     Status: {
         type: String,
         trim: true
     },
-},{timestamps:true})
+}, { timestamps: true })
 module.exports = mongoose.model("paymentdetails", Payment)
