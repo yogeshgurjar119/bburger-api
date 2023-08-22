@@ -30,10 +30,20 @@ const Bill = new mongoose.Schema(
       type: String,
       trim: true,
     },
+    Address: {
+      type: String,
+      trim: true,
+    },
+    Landmark: {
+      type: String,
+      trim: true,
+    },
     PostalCode: {
       type: String,
       trim: true,
     },
+    Latitude: { type: Number, trim: true },
+    Longitude: { type: Number, trim: true },
     IsActive: {
       type: Boolean,
       default: true,

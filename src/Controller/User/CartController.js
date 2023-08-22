@@ -331,12 +331,12 @@ const PaymentDetails = require("../../Model/PaymentDetails")
 
 const addAllCart = async (req, res) => {
     try {
-        const { userId, cart, name, email, phone, city, state, code } = req.body
+        const { userId, cart, name, email, phone, city, state, code, address, landmark, latitude, longitude } = req.body
         const header = req.headers.authkey
         const token = req.headers.token
         if (header !== null && header !== '' && header !== undefined) {
             if (header == Authkey) {
-                if (userId !== null && userId !== '' && userId !== undefined && name !== null && name !== '' && name !== undefined && email !== null && email !== '' && email !== undefined && phone !== null && phone !== '' && phone !== undefined && code !== null && code !== '' && code !== undefined && city !== null && city !== '' && city !== undefined && state !== null && state !== '' && state !== undefined && Array.isArray(cart)) {
+                if (userId !== null && userId !== '' && userId !== undefined && name !== null && name !== '' && name !== undefined && email !== null && email !== '' && email !== undefined && phone !== null && phone !== '' && phone !== undefined && code !== null && code !== '' && code !== undefined && city !== null && city !== '' && city !== undefined && state !== null && state !== '' && state !== undefined && address !== null && address !== '' && address !== undefined && landmark !== null && landmark !== '' && latitude !== undefined && latitude !== null && latitude !== '' && landmark !== undefined && longitude !== null && longitude !== '' && longitude !== undefined && Array.isArray(cart)) {
                     const verify = verifyToken(token, userId);
                     if (verify == true) {
                         if (isEmailValid(email)) {
@@ -353,6 +353,10 @@ const addAllCart = async (req, res) => {
                                         Email: email,
                                         Number: phone,
                                         City: city,
+                                        Longitude: longitude,
+                                        Latitude: latitude,
+                                        Address: address,
+                                        Landmark: landmark,
                                         State: state,
                                         PostalCode: code,
                                     })
