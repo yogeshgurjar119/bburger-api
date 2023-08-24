@@ -447,7 +447,7 @@ const getOrderHistory = async (req, res) => {
                                     localField: 'BillID', // set the local field to `categoryCode`
                                     foreignField: 'BillID',
                                 }
-                            ]).sort({ _id: -1 }).then(response => {
+                            ]).sort({ _id: -1 }).limit(5).then(response => {
                                 res.status(200).send({
                                     code: 200,
                                     status: 'success',
